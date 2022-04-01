@@ -10,13 +10,13 @@ async function captureScreenshot() {
         await page.setViewport({ width: 1000, height: 630 });
         await page.goto("https://coup.aappb.org", { waitUntil: 'networkidle2' });
 
-        async function screenshotDOMElement(selector, padding = 10) {
+        async function screenshotDOMElement(selector, padding = 1) {
             const rect = await page.evaluate(selector => {
                 const element = document.querySelector(selector);
                 const { x, y, width, height } = element.getBoundingClientRect();
                 console.log("width", width)
                 console.log("height", height)
-                return { left: x, top: y, width: width - 15, height: height - 20, id: element.id };
+                return { left: x, top: y, width: width, height: height, id: element.id };
             }, selector);
 
             return await page.screenshot({
@@ -30,7 +30,7 @@ async function captureScreenshot() {
             });
         }
 
-        await screenshotDOMElement('#culmulativegraph', 16);
+        await screenshotDOMElement('#culmulativegraph', 1);
         const currentDate = new Date();
         await fs.writeFile(path.join(__dirname, 'log.txt'), `\n Updated graph preview on : ${currentDate.toString()}`, 'utf-8')
         console.log("\n 🕟 Updated log file")
