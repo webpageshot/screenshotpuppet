@@ -7,7 +7,7 @@ async function captureScreenshot() {
     try {
         browser = await puppeteer.launch({ headless: true });
         const page = await browser.newPage();
-        await page.setViewport({ width: 1200, height: 628 });
+        await page.setViewport({ width: 1000, height: 630 });
         await page.goto("https://coup.aappb.org", { waitUntil: 'networkidle2' });
 
         async function screenshotDOMElement(selector, padding = 10) {
