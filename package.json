@@ -1,0 +1,23 @@
+{
+  "name": "screenshotpuppet",
+  "version": "1.0.0",
+  "description": "whim screenshot puppet",
+  "main": "index.js",
+  "scripts": {
+    "fetch": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Z9R9/screenshotpuppet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Z9R9/screenshotpuppet/issues"
+  },
+  "homepage": "https://github.com/Z9R9/screenshotpuppet#readme",
+  "dependencies": {
+    "puppeteer": "^13.5.2"
+  }
+}
