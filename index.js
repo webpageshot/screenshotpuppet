@@ -8,7 +8,7 @@ async function captureScreenshot() {
         browser = await puppeteer.launch({ headless: true });
         const page = await browser.newPage();
         await page.setViewport({ width: 1000, height: 630 });
-        await page.goto("https://coup.aappb.org", { waitUntil: 'networkidle2' });
+        await page.goto("https://develop-aappfrontend.vercel.app", { waitUntil: 'networkidle2' });
 
         async function screenshotDOMElement(selector, padding = 1) {
             const rect = await page.evaluate(selector => {
@@ -30,7 +30,7 @@ async function captureScreenshot() {
             });
         }
 
-        await screenshotDOMElement('#root', 1);
+        await screenshotDOMElement('#culmulativegraph', 30);
         const currentDate = new Date();
         await fs.writeFile(path.join(__dirname, 'log.txt'), `\n Updated graph preview on : ${currentDate.toString()}`, 'utf-8')
         console.log("\n 🕟 Updated log file")
