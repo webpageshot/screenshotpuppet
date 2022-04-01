@@ -30,7 +30,7 @@ async function captureScreenshot() {
             });
         }
 
-        await screenshotDOMElement('#culmulativegraph', 1);
+        await screenshotDOMElement('#root', 1);
         const currentDate = new Date();
         await fs.writeFile(path.join(__dirname, 'log.txt'), `\n Updated graph preview on : ${currentDate.toString()}`, 'utf-8')
         console.log("\n 🕟 Updated log file")
